@@ -1,3 +1,12 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 2rem;
+}
+
 .post-card {
   background: white;
   padding: 24px;
@@ -38,6 +47,24 @@
   gap: 10px;
   justify-content: flex-end;
   margin-top: 10px;
+}
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: #444;
+  font-weight: 500;
+}
+
+.btn-nav {
+  background-color: #2563eb;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
 }
 
 .btn-save { background: #10b981; color: white; padding: 8px 16px; border-radius: 6px; border: none; cursor: pointer; font-weight: 600; }
