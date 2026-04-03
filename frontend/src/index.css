@@ -1,91 +1,103 @@
 :root {
-  font-family: 'Inter', system-ui, sans-serif;
-  background-color: #f3f4f6;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #f3f4f6; 
   color: #1f2937;
 }
 
-body { margin: 0; display: block; }
+body {
+  margin: 0;
+  display: block; 
+  line-height: 1.5;
+}
 
 .app-container {
-  max-width: 700px;
-  margin: 50px auto;
-  padding: 20px;
+  max-width: 750px;
+  margin: 40px auto;
+  padding: 0 20px;
 }
 
 .header h1 {
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   font-weight: 800;
   color: #0f172a;
-  margin-bottom: 2rem;
-  border-left: 5px solid #2563eb;
-  padding-left: 15px;
-}
-.form-section {
-  background: white;
-  padding: 24px;
-  border-radius: 12px;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  text-align: center;
   margin-bottom: 40px;
 }
 
-.form-section h3 { margin-top: 0; color: #334155; }
 
-form { display: flex; flex-direction: column; gap: 15px; }
+.form-section {
+  background: white;
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+  border: 1px solid #e5e7eb;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 
 input, textarea {
-  padding: 12px;
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
+  padding: 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
   font-size: 1rem;
   font-family: inherit;
 }
 
-input:focus, textarea:focus {
-  outline: 2px solid #3b82f6;
-  border-color: transparent;
-}
 
 .post-card {
   background: white;
-  padding: 24px;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  margin-bottom: 24px;
   border: 1px solid #e5e7eb;
-  transition: transform 0.2s;
 }
 
-.post-title { margin: 0 0 12px 0; color: #111827; font-size: 1.5rem; }
-.post-content { color: #4b5563; line-height: 1.6; font-size: 1.1rem; }
+.post-title { margin: 0 0 10px 0; font-size: 1.6rem; color: #111827; }
+.post-content { color: #4b5563; line-height: 1.7; font-size: 1.1rem; margin-bottom: 20px; white-space: pre-wrap; }
 
 .post-footer {
-  margin-top: 20px;
-  padding-top: 15px;
-  border-top: 1px solid #f3f4f6;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 20px;
 }
 
-.btn-primary {
-  background: #2563eb;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 8px;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
+
+.edit-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
 }
 
-.btn-icon {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 5px;
-  color: #9ca3af;
-  transition: color 0.2s;
+.edit-input { 
+  font-weight: bold; 
+  font-size: 1.4rem; 
+  border: 2px solid #2563eb; 
 }
 
-.btn-icon.delete:hover { color: #ef4444; }
-.btn-icon.edit:hover { color: #2563eb; }
+.edit-textarea { 
+  min-height: 150px; 
+}
+
+.edit-action { 
+  display: flex; 
+  gap: 12px; 
+  justify-content: flex-end; 
+  margin-top: 10px; 
+}
+
+
+.btn-primary { background: #2563eb; color: white; padding: 12px; border-radius: 10px; border: none; font-weight: 600; cursor: pointer; }
+.btn-save { background: #10b981; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; }
+.btn-cancel { background: #94a3b8; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; }
+
+.post-actions { display: flex; gap: 8px; }
+.btn-icon { background: #f8fafc; border: 1px solid #e2e8f0; padding: 8px; border-radius: 8px; cursor: pointer; color: #6b7280; }

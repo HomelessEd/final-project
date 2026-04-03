@@ -28,6 +28,17 @@ export function usePosts() {
     }
   };
 
+  const updatePost = async (id, updatedData) => {
+  try {
+    const response = await axios.put(`http://localhost:3000/api/posts/${id}`, updatedData);
+    setPosts(posts.map(post => post._id === id ? response.data : post));
+    return true;
+  } catch (err) {
+    console.error("Update error:", err);
+    return false;
+  }
+};
+
   const deletePost = async (id) => {
     try {
         await axios.delete(`http://localhost:3000/api/posts/${id}`);
@@ -45,5 +56,5 @@ export function usePosts() {
   }, []);
 
   
-  return { posts, loading, addPost, deletePost, refresh: fetchPosts };
+  return { posts, loading, addPost, updatePost, deletePost, refresh: fetchPosts };
 }
