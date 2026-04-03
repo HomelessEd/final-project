@@ -3,7 +3,7 @@ import { usePosts } from './hooks/usePosts'
 import { Trash2, Edit3, Send} from 'lucide-react'
 
 function App() {
-  const {posts, loading, addPost} =usePosts();
+  const {posts, loading, addPost, deletePost} =usePosts();
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [author, setAuthor] = useState('');
@@ -57,7 +57,12 @@ function App() {
               <span className="post-author">By {post.author || 'Anonymous'}</span>
               <div className="post-actions">
                 <button className="btn-icon edit"><Edit3 size={18} /></button>
-                <button className="btn-icon delete"><Trash2 size={18} /></button>
+                <button className="btn-icon delete" onClick={() => {
+                  if(window.confirm("Hey be careful, you are going to delete this, you sure?")) {
+                      deletePost(post._id);
+                  }
+                }}>
+                  <Trash2 size={18} /></button>
               </div>
             </div>
           </article>

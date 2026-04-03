@@ -26,12 +26,24 @@ export function usePosts() {
         console.error("Show error:", err);
         return false;
     }
-  }
+  };
+
+  const deletePost = async (id) => {
+    try {
+        await axios.delete(`http://localhost:3000/api/posts/${id}`);
+        setPosts(posts.filter(post => post._id !== id));
+        return true;
+    } catch (err) {
+        console.error("Error with delete", err);
+        alert("Err, we couldn´t delete that");
+        return false;
+    }
+  };
   
   useEffect(() => {
     fetchPosts();
   }, []);
 
   
-  return { posts, loading, addPost, refresh: fetchPosts };
+  return { posts, loading, addPost, deletePost, refresh: fetchPosts };
 }
