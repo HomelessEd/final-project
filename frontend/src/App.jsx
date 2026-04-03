@@ -1,20 +1,22 @@
 import React, {useState} from 'react'
 import { usePosts } from './hooks/usePosts'
-import { Trash2, Edit3, PlusCircle, Send} from 'lucide-react'
+import { Trash2, Edit3, Send} from 'lucide-react'
 
 function App() {
   const {posts, loading, addPost} =usePosts();
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const [author, setAuthor] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!title || !content) return alert ("You need to complete both fields for a post");
+    if (!title || !content || !author) return alert ("You need to complete all fields for a post");
 
-    const success = await addPost({ title, content});
+    const success = await addPost({ title, content, author});
     if (success) {
       setTitle('');
       setContent('');
+      setAuthor('');
     }
   };
 
@@ -31,6 +33,11 @@ function App() {
            placeholder='Title Here'
            value={title}
            onChange={(e) => setTitle(e.target.value)}/>
+           <input
+             type='text'
+             placeholder='Your Name (Author)'
+             value={author}
+             onChange={(e) => setAuthor(e.target.value)}/>
            <textarea 
              placeholder='So what do you have to say for yourself squire?'
              value={content}
