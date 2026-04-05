@@ -1,16 +1,62 @@
-# React + Vite
+The Final Blog
+A blog platform built with the MERN stack (MongoDB, Express, React, Node.js). This project features delete and edit protections, dynamic theme switching, and a separate look for mobile users.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Tech Stack
+Frontend: React, React Router, Axios
 
-Currently, two official plugins are available:
+Backend: Node.js, Express.js
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Database: MongoDB (via Mongoose)
 
-## React Compiler
+API Testing: Postman
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Deployment: Render (Backend), Netlify (Frontend)
 
-## Expanding the ESLint configuration
+Styling: CSS3
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Key Features
+Delete and Edit Protection
+
+Actions like Delete and Edit trigger a password prompt.
+
+The password is sent via a custom header.
+
+The Backend validates this against a secret variable before allowing changes.
+
+Dynamic Theme Engine
+ Dark Mode/Light Mode toggle.
+
+Saves your choice so it stays the same when you refresh.
+
+Uses CSS variables for instant switching.
+
+Mobile Responsive
+The layout changes on smaller screens to stack the menu and buttons vertically so it is easy to use on a phone.
+
+How to Run on Localhost
+Clone the repository:
+git clone: https://github.com/HomelessEd/final-project
+
+Setup Backend:
+
+Go to the /backend folder.
+
+Create a file named .env
+
+Add these lines inside it:
+MONGO_URI=your_mongodb_link
+PORT=3000
+ADMIN_PASSWORD=your_password
+
+Run "npm install" then "npm start"
+
+Setup Frontend:
+
+Go to the /frontend folder.
+
+Create a file named .env
+
+Add this line inside it:
+VITE_API_URL=http://localhost:3000
+
+Run "npm install" then "npm run dev"
