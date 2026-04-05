@@ -25,6 +25,16 @@ exports.createPost = async (req, res, next) => {
 };
 
 exports.deletePost = async (req, res, next) => {
+    const clientPassword = req.headers['admin-secret'];
+
+    console.log("--- INCOMING DELETE REQUEST ---");
+    console.log("Secret from Header:", clientPassword);
+    console.log("Secret in .env:", process.env.ADMIN_PASSWORD);
+
+    if (clientPassword !== process.env.ADMIN_PASSWORD) {
+        console.log("LOCK ENGAGED: Password mismatch!");
+        return res.status(403).json({ message: "That´s not the right password" });
+    }
     try {
         const post = await Post.findByIdAndDelete(req.params.id);
         if (!post) {
@@ -37,6 +47,10 @@ exports.deletePost = async (req, res, next) => {
 };
 
 exports.updatePost = async (req, res, next) => {
+    const clientPassword = req.headers['admin-secret'];
+    if (clientPassword !== process.env.ADMIN_PASSWORD) {
+        return res.status(403).json({ message: "That´s not the right password, no edit here" });
+    }    
     try {
         const post = await Post.findByIdAndUpdate(
             req.params.id, 

@@ -30,19 +30,30 @@ export function usePosts() {
   };
 
   const updatePost = async (id, updatedData) => {
-  try {
-    const response = await axios.put(`${API_URL}/${id}`, updatedData);
+    const password = prompt("Enter Admin Password to Edit:");
+    if (!password) return false;
+    try {
+    const response = await axios.put(`${API_URL}/${id}`, updatedData, {
+      headers: {'admin-secret': password}
+    });
     setPosts(posts.map(post => post._id === id ? response.data : post));
     return true;
   } catch (err) {
     console.error("Update error:", err);
+    alert(err.response?.data?.message || "Unauthorized to edit");
     return false;
   }
 };
 
   const deletePost = async (id) => {
+   const confirmed = window.confirm("Hey be careful, you are going to delete this, you sure?");
+   if (!confirmed) return false; 
+  const password = prompt("Enter Admin Password to Delete:");
+    if (!password) return false;
     try {
-        await axios.delete(`${API_URL}/${id}`);
+        await axios.delete(`${API_URL}/${id}`, {
+         headers: {'admin-secret': password} 
+        });
         setPosts(posts.filter(post => post._id !== id));
         return true;
     } catch (err) {
