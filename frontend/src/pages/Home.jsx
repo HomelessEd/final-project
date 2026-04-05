@@ -20,8 +20,15 @@ function Home() {
   return (
     <main>
       {loading ? (
-        <p>Loading...</p>
+        <div className="loading-state">
+    <div className="spinner"></div> 
+    <h2>Oye! Render, wake up mate...</h2>
+    <p>Sorry, give him a few seconds but no more than thirty</p>
+  </div>
       ) : (
+        posts.length === 0 ? (
+          <p className="empty-msg">It´s kind of empty here. Let´s get started</p>
+        ) : (
         posts.map((post) => (
           <article key={post._id} className="post-card">
             {editingId === post._id ? (
@@ -29,11 +36,15 @@ function Home() {
                 <input 
                   className='edit-input'
                   value={editTitle}
+                  required
+                  minLength="3"
                   onChange={(e) => setEditTitle(e.target.value)}
                 />
                 <textarea 
                   className='edit-textarea'
                   value={editContent}
+                  required
+                  minLength="10"
                   onChange={(e) => setEditContent(e.target.value)}
                 />
                 <div className='edit-action'>
@@ -68,6 +79,7 @@ function Home() {
             )}
           </article>
         ))
+      )
       )}
     </main>
   );
