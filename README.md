@@ -34,8 +34,7 @@ Mobile Responsive
 The layout changes on smaller screens to stack the menu and buttons vertically so it is easy to use on a phone.
 
 # How to Run on Localhost
-Clone the repository:
-git clone: https://github.com/HomelessEd/final-project
+Clone the repository: https://github.com/HomelessEd/final-project
 
 ## Setup Backend:
 
