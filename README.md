@@ -47,7 +47,7 @@ MONGO_URI=your_mongodb_link
 PORT=3000
 ADMIN_PASSWORD=your_password
 
-Run "npm install" then "npm start"
+Run "npm install" then "npm run dev"
 
 ## Setup Frontend:
 
