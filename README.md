@@ -1,7 +1,7 @@
-#The Final Blog
+# The Final Blog
 A blog platform built with the MERN stack (MongoDB, Express, React, Node.js). This project features delete and edit protections, dynamic theme switching, and a separate look for mobile users.
 
-##Tech Stack
+## Tech Stack
 Frontend: React, React Router, Axios
 
 Backend: Node.js, Express.js
@@ -14,7 +14,7 @@ Deployment: Render (Backend), Netlify (Frontend)
 
 Styling: CSS3
 
-##Key Features
+## Key Features
 Delete and Edit Protection
 
 Actions like Delete and Edit trigger a password prompt.
@@ -33,11 +33,11 @@ Uses CSS variables for instant switching.
 Mobile Responsive
 The layout changes on smaller screens to stack the menu and buttons vertically so it is easy to use on a phone.
 
-#How to Run on Localhost
+# How to Run on Localhost
 Clone the repository:
 git clone: https://github.com/HomelessEd/final-project
 
-##Setup Backend:
+## Setup Backend:
 
 Go to the /backend folder.
 
@@ -50,7 +50,7 @@ ADMIN_PASSWORD=your_password
 
 Run "npm install" then "npm start"
 
-##Setup Frontend:
+## Setup Frontend:
 
 Go to the /frontend folder.
 
