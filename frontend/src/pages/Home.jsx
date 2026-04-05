@@ -11,6 +11,10 @@ function Home() {
   const [editContent, setEditContent] = useState('');
 
   const handleUpdate = async (id) => {
+    if(!editTitle.trim() || !editContent.trim()) {
+      alert ("No empty messages squire");
+      return;
+    }
     const success = await updatePost(id, { title: editTitle, content: editContent });
     if (success) {
       setEditingId(null); 
