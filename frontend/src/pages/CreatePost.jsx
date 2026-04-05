@@ -13,7 +13,7 @@ function CreatePost() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!title || !content || !author) return alert("You need to complete all fields for a post");
+    if (!title.trim() || !content.trim()  || !author.trim() ) return alert("You need to complete all fields and no empty messages");
 
     const success = await addPost({ title, content, author });
     if (success) {
